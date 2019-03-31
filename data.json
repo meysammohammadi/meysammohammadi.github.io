@@ -1,0 +1,26 @@
+[
+    {
+        "name" : "Meysam",
+        "inhome" : true
+    },
+    {
+        "name" : "Mehrdad",
+        "inhome" : false
+    },
+    {
+        "name" : "Maryam",
+        "inhome" : true
+    },
+    {
+        "name" : "Mazaher",
+        "inhome" : false
+    },
+    {
+        "name" : "Zahra",
+        "inhome" : false
+    },
+    {
+        "name" : "Alireza",
+        "inhome" : true
+    }
+]

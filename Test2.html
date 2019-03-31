@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Hello Familly</h1>
+        <div id="ajax"></div>
+        <script>
+            const xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                let statusHTML;
+                if (xhr.readyState === 4){
+                    let familly = JSON.parse(xhr.responseText);
+                    statusHTML = '<ul class="familly-status">';
+                    for (let i = 0; i < familly.length; i++) {
+                        if (familly[i].inhome === true) {
+                            statusHTML += '<li class="in">';
+                        } else if (familly[i].inhome === false) {
+                            statusHTML += '<li class="out">';
+                        }
+                        statusHTML += familly[i].name;
+                        statusHTML += '</li>';
+                    }
+                    statusHTML += '</ul>';
+                }
+                document.getElementById('ajax').innerHTML = statusHTML;
+            };
+            xhr.open('GET', 'data.json');
+            xhr.send();
+        </script>
+    </body>
+</html>
