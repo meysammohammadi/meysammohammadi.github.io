@@ -1,2 +1,2 @@
-# Only works in a web server
-unless you want to open it with mozila firefox developer or google chrome canary
+# Oh hi there!
+hope you doing well. here I'm doing some tests and $hit :)
