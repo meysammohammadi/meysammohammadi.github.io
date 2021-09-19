@@ -1,0 +1,267 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: 0.2s;
+  list-style: none;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* this border for margin of other elements to not push the entire scene far */
+  border: 1px solid #fff0;
+}
+
+/* ################################## */
+/*######### Toggle button Config #########*/
+/* ################################## */
+
+/* the back of the bullet of the toggle button */
+toggle-button .wrapper {
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  position: relative;
+  background-color: #949494;
+  border-radius: 20px;
+  /* transform: translateY(5px); */
+  cursor: pointer;
+}
+
+/* the bullet of the toggle button */
+toggle-button .wrapper .bullet {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  transform: scale(0.8);
+}
+
+/* when clicked : the back of the bullet of the toggle button */
+toggle-button.active .wrapper {
+  background-color: #f77862;
+}
+
+/* when clicked: the bullet of the toggle button */
+toggle-button.active .wrapper .bullet {
+  left: 20px;
+}
+
+/* ############################################################ */
+/* Playing with the styles. all the good stuff is above this */
+/* ############################################################ */
+
+ul {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  max-width: 400px;
+  cursor: default;
+  padding: 25px 0;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+ul .header,
+ul button {
+  width: 95%;
+}
+
+ul .header {
+  display: flex;
+  margin: 10px 0px 30px;
+  padding: 0 15px;
+  color: #f77862;
+}
+
+ul .header ion-icon {
+  font-size: 1.6em;
+}
+
+ul .header ion-icon {
+  flex-grow: 1;
+}
+
+ul .header .head-title {
+  min-width: 80%;
+  font-size: 1.4em;
+  font-weight: bold;
+  padding-left: 5px;
+}
+
+ul .li-ops {
+  padding: 0 40px;
+}
+
+ul .li-ops li {
+  display: flex;
+  flex-flow: wrap;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+ul .li-ops li .title {
+  min-width: 80%;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #4e4e4e;
+}
+
+ul .li-ops li:hover .title {
+  font-size: 1.3em;
+}
+
+ul .li-ops li toggle-button {
+  min-width: 20%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+ul .li-ops li .descript {
+  width: 100%;
+  margin: 15px 0;
+  font-size: 0.9em;
+  color: #949494;
+}
+
+ul button {
+  width: 90%;
+  padding: 10px 0;
+  background-color: #e4543b;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+ul button:active {
+  transform: scale(0.98);
+}
+
+/* ################################## */
+/*######### Dark Mode Config #########*/
+/* ################################## */
+
+.darkmodeActive {
+  background-color: #2c2c2c;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+ul.darkmodeActive li .title {
+  color: white;
+}
+ul.darkmodeActive li .descript {
+  color: #949494;
+}
+
+/* ################################## */
+/*######### color Mode Config #########*/
+/* ################################## */
+
+ul #colorsli {
+  border-top: 1px solid #8f8f8f;
+  padding-top: 20px;
+  margin-bottom: 30px;
+}
+
+ul #colors-container {
+  min-width: 20%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+ul #colors-container #colors {
+  display: flex;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #f57f6a;
+  position: relative;
+}
+/* tooltip */
+ul #colors-container #colors #choosecolors {
+  transform: scale(0);
+  position: absolute;
+  bottom: 150%;
+  min-width: fit-content;
+  min-height: fit-content;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+/* tooltip arrow beneath it */
+ul #colors-container #colors #choosecolors::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: #ffffff transparent transparent transparent;
+}
+/* tooltip in dark mode */
+ul.darkmodeActive #colors-container #colors #choosecolors {
+  background-color: #4e4e4e;
+}
+/* tooltip arrow beneath it in dark mode*/
+ul.darkmodeActive #colors-container #colors #choosecolors::after {
+  border-color: #4e4e4e transparent transparent transparent;
+}
+
+ul #colors-container #colors #choosecolors.activecolortooltip {
+  transform: scale(1);
+}
+
+ul #colors-container #colors #choosecolors #red,
+ul #colors-container #colors #choosecolors #yellow,
+ul #colors-container #colors #choosecolors #blue {
+  margin: 10px;
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+ul #colors-container #colors #choosecolors #red {
+  background-color: #f57f6a;
+}
+
+ul #colors-container #colors #choosecolors #yellow {
+  background-color: #ebdd26;
+}
+
+ul #colors-container #colors #choosecolors #blue {
+  background-color: #62aeda;
+}
+
+/* toggle button colors */
+toggle-button.active .wrapper.red {
+  background-color: #f57f6a;
+}
+
+toggle-button.active .wrapper.yellow {
+  background-color: #ebdd26;
+}
+
+toggle-button.active .wrapper.blue {
+  background-color: #62aeda;
+}
