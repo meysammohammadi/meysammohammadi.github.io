@@ -160,3 +160,12 @@ blue.addEventListener('click', () => {
 });
 
 
+// close button (remove ul)
+header.children[2].addEventListener ('click', () => {
+    ul.remove();
+});
+// open again (get back ul)
+body.addEventListener('keypress', (e) => {
+    console.log(e.code);
+    if(e.code == 'Enter') body.appendChild(ul);
+});

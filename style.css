@@ -20,6 +20,14 @@ body {
   border: 1px solid #fff0;
 }
 
+.matn {
+  display: inline-block;
+  position: relative;
+  padding: 0 2px;
+  border: 1px solid #949494;
+  border-radius: 2px;
+}
+
 /* ################################## */
 /*######### Toggle button Config #########*/
 /* ################################## */
