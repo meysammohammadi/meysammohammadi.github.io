@@ -16,7 +16,7 @@
             xhr.onreadystatechange = function () {
                 let statusHTML;
                 if (xhr.readyState === 4){
-                    let familly = JSON.parse(xhr.responseText);
+                    let familly = JSON.parse(xhr.responseText); //reads and stores all data in variable 'familly'
                     statusHTML = '<ul class="familly-status">';
                     for (let i = 0; i < familly.length; i++) {
                         if (familly[i].inhome === true) {
@@ -28,7 +28,7 @@
                         statusHTML += '</li>';
                     }
                     statusHTML += '</ul>';
-                } else alert("Server is not accesible!");
+                } else alert("Hey man! sorry. I couldn't connect to data.json, so you know");
                 document.getElementById('ajax').innerHTML = statusHTML;
             };
             xhr.open('GET', 'data.json');
