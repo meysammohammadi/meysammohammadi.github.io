@@ -28,7 +28,7 @@
                         statusHTML += '</li>';
                     }
                     statusHTML += '</ul>';
-                }
+                } else alert("Server is not accesible!");
                 document.getElementById('ajax').innerHTML = statusHTML;
             };
             xhr.open('GET', 'data.json');
