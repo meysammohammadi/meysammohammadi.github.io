@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styless.css">
+    <link rel="stylesheet" href="flex.css">
+    <title>Flexbox Playground</title>
+</head>
+<body>
+    <div class="container">
+
+
+        <h2>Theme color selection</h2><br>
+        <div class="range">
+            <input type="range" id="volume" name="volume"
+            min="0" max="360" value="255">
+        </div>
+        <p id="range-val">255</p><br><br><br>
+
+
+        
+        <h2>Flexbox Playground</h2>
+        <p>Flexbox is not a single property its complete module which comes with the number of features and here we have a complete guide for CSS flex</p>
+        <p>Before going into detail I just want to answer why we should use flexbox layout instead of a traditional way of doing layout webpage using display properties, float properties, positional properties</p> <br><br>
+
+        <h3>Advantages Of Using Flexbox</h3>
+        <p><b>01.</b> Flexbox Equally distribute height and width for the item, even though items are added dynamically, Don’t need to care about CSS properties<br><br> 
+        <b>02.</b> easily reverse the structure of items<br><br> 
+        <b>03.</b> easily grow and shrink the width of the item as per dynamic width of the container<br><br> 
+        <b>04.</b> easily control the direction of the elements like vertical or horizontal based on a single property<br><br> 
+        <b>05.</b> change the order of any element<br><br> 
+        <b>06.</b> 96% of the browser having support for flexbox </p><br><br>
+
+        <h3>Layout For Flexbox</h3>
+        <p>we should know how flexbox works, please refer below diagram</p><br><br>
+        <img src="Architecture-of-flexbox.webp" alt="" style="display: block; width: 100%; border-radius: 10px;">
+        
+        <div id="#top" class="main-content">
+
+            <!-- ########### Default ############ -->
+            <div class="section default">
+                <h2>Default</h2>
+                <h3>display: flex; &nbsp; &nbsp; &nbsp; flex-wrap: wrap;</h3>
+                <ul class="flex-content flex-default">
+                    <li>1</li>
+                    <li>2<br>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6<br>6<br>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>A</li>
+                    <li>B</li>
+                    <li>C</li>
+                    <li>D D<br>D D</li>
+                    <li>E</li>
+                    <li>F</li>
+                </ul>
+            </div>
+
+            <!-- ########### One ############ -->
+            <div class="section one">
+                <h2>align-items &nbsp; vs &nbsp; align-content</h2>
+                <h3>align-items: center;</h3>
+                <ul class="flex-content align-items">
+                    <li>1</li>
+                    <li>2<br>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6<br>6<br>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>A</li>
+                    <li>B</li>
+                    <li>C</li>
+                    <li>D D<br>D D</li>
+                    <li>E</li>
+                    <li>F</li>
+                </ul>
+                <h3>align-content: center;</h3>
+                <ul class="flex-content align-content">
+                    <li>1</li>
+                    <li>2<br>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6<br>6<br>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>A</li>
+                    <li>B</li>
+                    <li>C</li>
+                    <li>D D<br>D D</li>
+                    <li>E</li>
+                    <li>F</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <a href="#top">
+            <p class='footer'><i>&#8593;</i>what you doing here? get up there and practice...</p>
+        </a>
+    </div>
+
+    <script src="apps.js"></script>
+</body>
+</html>

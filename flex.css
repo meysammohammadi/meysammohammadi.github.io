@@ -1,0 +1,27 @@
+/* #################################### */
+/* ############# FLEXBOX ############## */
+/* #################################### */
+
+/* default display: flex */
+.default .flex-default {
+  min-height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* one */
+.one .align-items {
+  min-height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.one .align-content {
+  min-height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+.one li {
+  height: fit-content;
+}
