@@ -98,13 +98,13 @@ a {
 input[type="range"] {
   -webkit-appearance: none;
   margin: 10px 0;
-  width: 100%;
+  width: 90%;
 }
 input[type="range"]:focus {
   outline: none;
 }
 input[type="range"]::-webkit-slider-runnable-track {
-  width: 100%;
+  width: 90%;
   height: 12.8px;
   cursor: pointer;
   background: var(--libg);
@@ -122,7 +122,7 @@ input[type="range"]:focus::-webkit-slider-runnable-track {
   background: var(--libg);
 }
 input[type="range"]::-moz-range-track {
-  width: 100%;
+  width: 90%;
   height: 12.8px;
   cursor: pointer;
   animate: 0.2s;
@@ -136,7 +136,7 @@ input[type="range"]::-moz-range-thumb {
   cursor: pointer;
 }
 input[type="range"]::-ms-track {
-  width: 100%;
+  width: 90%;
   height: 12.8px;
   cursor: pointer;
   animate: 0.2s;
