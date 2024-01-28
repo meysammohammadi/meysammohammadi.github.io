@@ -1,2 +1,3 @@
-# Oh hi there!
-hope you doing well. here I'm doing some tests and $hit :)
+# Hello World!
+Here I'm doing some tests :)
+Nothing special yet 👨‍🎓
