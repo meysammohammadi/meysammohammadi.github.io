@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="
+    src/style.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h3>Rate this app</h3>
+      <!-- .emoji-container -->
+      <div class="emoji-container">
+        <div id="emojistack" class="rate0">
+          <img src="src/r0.svg" alt="no rating" />
+          <img src="src/r1.svg" alt="1" />
+          <img src="src/r2.svg" alt="2" />
+          <img src="src/r3.svg" alt="3" />
+          <img src="src/r4.svg" alt="4" />
+          <img src="src/r5.svg" alt="5" />
+        </div>
+      </div>
+      <!-- end .emoji-container -->
+
+      <!-- form -->
+      <form action="submit">
+        <input type="radio" name="rating" id="r5" />
+        <label for="r5"><img class="r5" src="src/star.svg" alt="" /></label>
+
+        <input type="radio" name="rating" id="r4" />
+        <label for="r4"><img class="r4" src="src/star.svg" alt="" /></label>
+
+        <input type="radio" name="rating" id="r3" />
+        <label for="r3"><img class="r3" src="src/star.svg" alt="" /></label>
+
+        <input type="radio" name="rating" id="r2" />
+        <label for="r2"><img class="r2" src="src/star.svg" alt="" /></label>
+
+        <input type="radio" name="rating" id="r1" />
+        <label for="r1"><img class="r1" src="src/star.svg" alt="" /></label>
+      </form>
+      <!-- end form -->
+    </div>
+    <!-- end .container -->
+
+    <script>
+      //////////////////// COPILOT CODE
+      document.querySelectorAll("label").forEach((element) => {
+        element.addEventListener("click", function (e) {
+          //   console.log(e.target.className);
+
+          let emojiClass = "";
+
+          switch (e.target.className) {
+            case "r1":
+              emojiClass = "rate1";
+              break;
+            case "r2":
+              emojiClass = "rate2";
+              break;
+            case "r3":
+              emojiClass = "rate3";
+              break;
+            case "r4":
+              emojiClass = "rate4";
+              break;
+            case "r5":
+              emojiClass = "rate5";
+              break;
+          }
+
+          document.getElementById("emojistack").classList.value = emojiClass;
+        });
+      });
+
+      //////////////////// MY CODE:
+
+      //   var labelCollection = document.getElementsByTagName("label");
+
+      //   var labelArray = Array.from(labelCollection);
+
+      //   labelArray.forEach(function (element) {
+      //     element.addEventListener("click", function (e) {
+      //       // This targets img inside labels! See for yourself
+      //       console.log(e.target.className);
+
+      //       //   Assigning classes to adjust EMOJI
+      //       if (e.target.className === "r1") {
+      //         document.getElementById("emojistack").classList.value = "rate1";
+      //       } else if (e.target.className === "r2") {
+      //         document.getElementById("emojistack").classList.value = "rate2";
+      //       } else if (e.target.className === "r3") {
+      //         document.getElementById("emojistack").classList.value = "rate3";
+      //       } else if (e.target.className === "r4") {
+      //         document.getElementById("emojistack").classList.value = "rate4";
+      //       } else if (e.target.className === "r5") {
+      //         document.getElementById("emojistack").classList.value = "rate5";
+      //       }
+      //     });
+      //   });
+    </script>
+  </body>
+</html>
