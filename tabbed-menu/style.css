@@ -26,7 +26,7 @@ body {
   background-color: #efefef;
   box-shadow: 0 10px 15px #0002;
   border-radius: 5px;
-  margin: auto;
+  margin: 0 auto;
   overflow: hidden;
   position: relative;
 }
