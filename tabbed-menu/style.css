@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Condensed", serif;
+}
+ul,
+ol,
+li {
+  list-style: none;
+}
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background-color: #fff;
+  padding: 1em;
+  color: #5c5c5c;
+}
+
+.container {
+  min-width: 400px;
+  max-width: 600px;
+  background-color: #efefef;
+  box-shadow: 0 10px 15px #0002;
+  border-radius: 5px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.menu-wrapper {
+  display: flex;
+  position: relative;
+  z-index: 1;
+}
+
+.menu-wrapper .menu-item {
+  flex-grow: 1;
+  text-align: center;
+  padding: 1em;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.menu-wrapper .menu-item::after {
+  content: "";
+  display: block;
+  /* width: 80px; */
+  width: 0;
+  height: 1px;
+  border-radius: 1px;
+  position: absolute;
+  bottom: 10px;
+  background-color: #979797;
+  transform: translateX(45px);
+  transition: all 0.3s ease-out;
+}
+
+.menu-wrapper .menu-item:not(.active):hover::after {
+  width: 80px;
+  transform: translateX(5px);
+}
+
+/* SLIDING TAB */
+
+.container .sliding-tab {
+  position: absolute;
+  width: calc(100% / 4);
+  height: 100%;
+  background-color: #ffffff;
+  transition: all 0.3s ease-out;
+  z-index: 1;
+  bottom: 0;
+  border-radius: 5px 5px 0 0;
+  box-shadow: 0 -8px 5px #0001;
+}
+
+.menu-wrapper .menu-item.one.active ~ .sliding-tab {
+  transform: translateX(0);
+}
+.menu-wrapper .menu-item.two.active ~ .sliding-tab {
+  transform: translateX(calc(calc(100% / 4) * 4.25));
+}
+.menu-wrapper .menu-item.three.active ~ .sliding-tab {
+  transform: translateX(calc(calc(100% / 4) * 8.3));
+}
+.menu-wrapper .menu-item.four.active ~ .sliding-tab {
+  transform: translateX(calc(300%));
+}
+
+/* MAIN CONTENT */
+.para {
+  background-color: #fff;
+  padding: 2em;
+  line-height: 25px;
+  word-spacing: 2px;
+  transition: all 0.3s ease-out;
+
+  display: none;
+}
+.para.active {
+  display: block;
+}
+
+.para span {
+  font-size: 1.2em;
+  vertical-align: middle;
+  padding-right: 8px;
+}
+.para h3 {
+  margin-bottom: 0.8em;
+}
+
+/*  */
+
+.footer {
+  background-color: #fff;
+  padding: 0 2em 1em;
+  direction: rtl;
+}
+.footer .material-symbols-outlined {
+  font-size: 1.2em;
+  vertical-align: middle;
+  color: #979797;
+}
+
+.footer span:not(.material-symbols-outlined) {
+  margin-left: 10px;
+}
