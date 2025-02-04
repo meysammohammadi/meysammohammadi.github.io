@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style2.css" />
+  </head>
+  <body>
+    <div class="container">
+      <ul class="menu-wrapper">
+        <li class="menu-item one active">Adipisicing</li>
+        <li class="menu-item two">Consectetur</li>
+        <li class="menu-item three">Reiciendis</li>
+        <li class="menu-item four">Inventore</li>
+        <!-- Sliding tab -->
+        <div class="sliding-tab"></div>
+      </ul>
+
+      <div class="para p1 active">
+        <h3>Viverra odio at vehicula</h3>
+        <p>
+          <span class="material-symbols-outlined"> favorite </span>Aenean
+          viverra neque vitae dui aliquam, sed consequat lorem sagittis. Vivamus
+          quis sem non erat tristique volutpat. Phasellus varius, ligula non
+          faucibus aliquet, justo purus viverra odio, at vehicula tortor sapien
+          vitae quam. Sed bibendum, odio sit amet efficitur malesuada, metus mi
+          pretium libero, quis tincidunt quam libero nec lacus.
+        </p>
+      </div>
+      <div class="para p2">
+        <h3>Nam id libero sit amet nulla</h3>
+        <p>
+          <span class="material-symbols-outlined"> key </span> Nulla facilisi.
+          Integer ultrices est nec nisi tempor, at vehicula lorem viverra.
+          Vivamus at ullamcorper leo. Nam id libero sit amet nulla iaculis
+          sollicitudin. Aliquam erat volutpat. Curabitur non enim non lorem
+          facilisis fermentum. Cras ut mi turpis. Suspendisse ac mi ut erat
+          ultricies ultrices a id libero.
+        </p>
+      </div>
+      <div class="para p3">
+        <h3>Quis velit venenatis finibus</h3>
+        <p>
+          <span class="material-symbols-outlined"> delete </span> Maecenas
+          porttitor nisl euismod, dictum ipsum ut, venenatis eros. Aenean
+          vehicula magna sed felis porttitor, ac elementum nunc interdum.
+          Pellentesque viverra lacus sed turpis cursus, at commodo metus
+          fermentum. Nam et arcu quis velit venenatis finibus sit amet nec
+          turpis. Nunc et nisl convallis, faucibus mauris a, vehicula lacus.
+        </p>
+      </div>
+      <div class="para p4">
+        <h3>Duis vehicula libero sed</h3>
+        <p>
+          <span class="material-symbols-outlined"> box </span>
+          Quisque at velit viverra, ornare nisi eu, tincidunt est. Praesent id
+          urna non metus bibendum sagittis. Suspendisse venenatis ante id odio
+          venenatis, nec scelerisque libero varius. Duis vehicula libero sed
+          lorem accumsan, et pharetra risus lacinia. Proin sit amet sem
+          consequat, dignissim metus eu, scelerisque augue.
+        </p>
+      </div>
+
+      <div class="footer">
+        <span class="material-symbols-outlined"> comment </span>
+        <span>12</span>
+        <span class="material-symbols-outlined"> thumb_up </span>
+        <span>33</span>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      $(document).ready(function () {
+        // getting the active menu-item at first
+        var activeMenuItem = $(".menu-wrapper .menu-item.active")[0];
+        var activeContent = $(".para.active")[0];
+
+        // click event listener for menu-item(s)
+        $(".menu-wrapper .menu-item").click(function (e) {
+          // getting the targeted element
+          var targetElement = e.target;
+
+          //   getting targeted elements last class to see if the clicked menu-item has .active in its classList
+          var targetsLastClassName =
+            targetElement.classList[targetElement.classList.length - 1];
+
+          //   IF THE ITEM IS NOT .active .menu-item THEN
+          if (targetsLastClassName !== "active") {
+            // first remove .active from previous .menu-item.active
+            activeMenuItem.classList.remove("active");
+            // keep the most recent targeted menu-item in the specified variable for later events
+            activeMenuItem = targetElement;
+            // add .active to that recent targeted menu-item
+            activeMenuItem.classList.add("active");
+
+            // active the related content beneath the menu-wrapper
+            switch (targetsLastClassName) {
+              case "one":
+                $(".para.active")[0].classList.remove("active");
+                $(".para.p1")[0].classList.add("active");
+                break;
+              case "two":
+                $(".para.active")[0].classList.remove("active");
+                $(".para.p2")[0].classList.add("active");
+                break;
+              case "three":
+                $(".para.active")[0].classList.remove("active");
+                $(".para.p3")[0].classList.add("active");
+                break;
+              case "four":
+                $(".para.active")[0].classList.remove("active");
+                $(".para.p4")[0].classList.add("active");
+                break;
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
