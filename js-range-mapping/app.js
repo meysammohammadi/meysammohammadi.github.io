@@ -177,7 +177,7 @@ function colorDarkModeSwitching() {
 //////////////////// setting range MIN/MAX ////////////////////
 // // // min setting
 function setMin(rangeElem, inputMin) {
-  if (parseFloat(inputMin) > parseFloat(rangeElem.max)) {
+  if (parseFloat(inputMin.value) > parseFloat(rangeElem.max)) {
     // 👇👇👇👇👇👇👇👇👇👇👇👇
     // alert("error");
     errorThrower(
@@ -185,15 +185,20 @@ function setMin(rangeElem, inputMin) {
       "Minimum cant be bigger than the maximum. Set maximum to a bigger number first then try again."
     );
     rangeElem.min = parseFloat(rangeElem.max) - 1;
-    controllerMinInputElement.value = parseFloat(rangeElem.min);
+    // 👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
+    // 👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
+    // 👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
+    // 👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
+    // no matter which min we change, this happens to controller min input
+    inputMin.value = parseFloat(rangeElem.min);
     controllerRangeCustomValueInput.value = controllerMinInputElement.value;
   } else {
-    rangeElem.min = parseFloat(inputMin);
+    rangeElem.min = parseFloat(inputMin.value);
   }
 }
 // // // max setting
 function setMax(rangeElem, inputMax) {
-  if (parseFloat(inputMax) < parseFloat(rangeElem.min)) {
+  if (parseFloat(inputMax.value) < parseFloat(rangeElem.min)) {
     // 👇👇👇👇👇👇👇👇👇👇👇👇
     // alert("error");
     errorThrower(
@@ -201,10 +206,15 @@ function setMax(rangeElem, inputMax) {
       "Maximum can't be less than the minimum. Set minimum to a lower number first then try again."
     );
     rangeElem.max = parseFloat(rangeElem.min) + 1;
-    controllerMaxInputElement.value = parseFloat(rangeElem.max);
+    // 👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
+    // 👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
+    // 👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
+    // 👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
+    // no matter which max we change, this happens to controller max input
+    inputMax.value = parseFloat(rangeElem.max);
     controllerRangeCustomValueInput.value = controllerMaxInputElement.value;
   } else {
-    rangeElem.max = parseFloat(inputMax);
+    rangeElem.max = parseFloat(inputMax.value);
   }
 }
 
@@ -356,6 +366,11 @@ function indexMapping(iInControllerRange, nInRangeTwo = "") {
 function LinearSequenceTerm() {
   let firstTerm = parseFloat(rangeTwo.min);
   let lastTerm = parseFloat(rangeTwo.max);
+  // 👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
+  // 👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
+  // 👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
+  // 👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇
+  // stepsInput can't be bigger than n terms in range one
   let indexOfTerm = indexMapping(iInController(), stepsInput.value);
   // this range is controlled by the first range so it doesn't matter how much is the distance
   let distanceBetweenEachTerm = 1;
@@ -363,7 +378,10 @@ function LinearSequenceTerm() {
   let iTerm = firstTerm + indexOfTerm * distanceBetweenEachTerm;
   if (iTerm > lastTerm) {
     // alert("error");
-    errorThrower("caution", "Your last input passed the maximum. I don't know what exactly happened here but please inform the developer when you encounter this error. Thanks");
+    errorThrower(
+      "caution",
+      "Your last input passed the maximum. I don't know what exactly happened here but please inform the developer when you encounter this error. Thanks"
+    );
   } else {
     return iTerm;
   }
@@ -440,8 +458,8 @@ window.onload = function () {
   makeTextBoxesDigitsOnly(stepsInput);
 
   // set min max
-  setMin(theControllerInput, controllerMinInputElement.value);
-  setMax(theControllerInput, controllerMaxInputElement.value);
+  setMin(theControllerInput, controllerMinInputElement);
+  setMax(theControllerInput, controllerMaxInputElement);
 
   // place labels
   placeTheLabelsOverTheThumbs(theControllerInput, labelController);
@@ -556,7 +574,7 @@ selectOptionsButton.onblur = function () {
 //////////////////// MIN/MAX inputs ////////////////////
 // // // controller min input
 controllerMinInputElement.onblur = function () {
-  setMin(theControllerInput, controllerMinInputElement.value);
+  setMin(theControllerInput, controllerMinInputElement);
   // place labels
   placeTheLabelsOverTheThumbs(theControllerInput, labelController);
   placeTheLabelsOverTheThumbs(rangeTwo, labelTwo);
@@ -569,7 +587,7 @@ controllerMinInputElement.onblur = function () {
 
 // // // controller max input
 controllerMaxInputElement.onblur = function () {
-  setMax(theControllerInput, controllerMaxInputElement.value);
+  setMax(theControllerInput, controllerMaxInputElement);
   // place labels
   placeTheLabelsOverTheThumbs(theControllerInput, labelController);
   placeTheLabelsOverTheThumbs(rangeTwo, labelTwo);
@@ -582,7 +600,7 @@ controllerMaxInputElement.onblur = function () {
 
 // // // range two min input
 rangeTwoMinInputElement.onblur = function () {
-  setMin(rangeTwo, rangeTwoMinInputElement.value);
+  setMin(rangeTwo, rangeTwoMinInputElement);
   // place labels
   placeTheLabelsOverTheThumbs(theControllerInput, labelController);
   placeTheLabelsOverTheThumbs(rangeTwo, labelTwo);
@@ -595,7 +613,7 @@ rangeTwoMinInputElement.onblur = function () {
 
 // range two max input
 rangeTwoMaxInputElement.onblur = function () {
-  setMax(rangeTwo, rangeTwoMaxInputElement.value);
+  setMax(rangeTwo, rangeTwoMaxInputElement);
   // place labels
   placeTheLabelsOverTheThumbs(theControllerInput, labelController);
   placeTheLabelsOverTheThumbs(rangeTwo, labelTwo);
@@ -646,7 +664,10 @@ controllerRangeCustomValueInput.onblur = function () {
   } else {
     // 👇👇👇👇👇👇👇👇👇👇
     // alert("error");
-    errorThrower("caution", "Your input must be something between the specified minimum and the maximum numbers.");
+    errorThrower(
+      "caution",
+      "Your input must be something between the specified minimum and the maximum numbers."
+    );
   }
 };
 
@@ -829,14 +850,32 @@ function createErrorInstance(errorIcon, errorMessage) {
   // close button event listener
   newCloseButton.onclick = function (e) {
     // console.log(e.target.parentElement);
-    errorWrapper.removeChild(e.target.parentElement);
-    removeErrorWrapperIfEmpty();
+    fadingErrorInstance(e.target.parentElement);
+    if (e.target.parentElement.style.opacity < 0.5) {
+      setTimeout(() => {
+        errorWrapper.removeChild(e.target.parentElement);
+        removeErrorWrapperIfEmpty();
+      }, 200);
+    }
   };
 
   errorBoxClassNameNumber++;
   newErrorBox.append(newErrorMessage, newCloseButton);
 
   document.getElementById("errorWrapper").prepend(newErrorBox);
+  setTimeout(() => {
+    let thisErrorInstance = document.querySelector(
+      `.error-box.${errorBoxClassName}`
+    );
+
+    fadingErrorInstance(thisErrorInstance);
+    if (thisErrorInstance.style.opacity < 0.5) {
+      setTimeout(() => {
+        errorWrapper.removeChild(thisErrorInstance);
+        removeErrorWrapperIfEmpty();
+      }, 200);
+    }
+  }, 5000);
 }
 
 ///////////////////////////////////////////////////
@@ -880,3 +919,14 @@ function removeErrorWrapperAfter5seconds() {
   }, 5000);
 }
 // NOTE: error event handlers and intervals (it's better to use setTimeOut because we have more control over it)
+
+function fadingErrorInstance(element1) {
+  let opacityCounter = 1;
+  setTimeout(function opacityTimeOut() {
+    element1.style.opacity = opacityCounter;
+    opacityCounter -= 0.1;
+    if (opacityCounter >= 0) {
+      setTimeout(opacityTimeOut, 20);
+    }
+  }, 20);
+}
