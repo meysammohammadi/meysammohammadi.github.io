@@ -14,9 +14,6 @@
       media="(prefers-color-scheme: dark)"
     />
     <title>Value range mapping</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <style>
       /*************************************
       document object css variables
@@ -120,9 +117,12 @@
       *************************************/
       nav {
         background-color: var(--fore-ground);
-        padding: 1em 1.4em;
-        border-bottom: 4px solid var(--border-color);
-        box-shadow: inset 0 -1px 0 0 #fff2;
+    padding: 1em 1.4em;
+    border-bottom: 4px solid var(--border-color);
+    box-shadow: inset 0 0 0 1px var(--border-color), inset 0 2px 0 0 #fff2;
+    width: calc(100% - 20px);
+    margin: 10px auto;
+    border-radius: 8px;
       }
 
       nav .nav-content {
@@ -430,6 +430,14 @@
         color: var(--focus-color);
         text-decoration: none;
       }
+      .description-area .link a:focus,
+      .description-area .link a:active,
+      .description-area .link a:focus *,
+      .description-area .link a:active *{
+         outline: none;
+         box-shadow: none;
+         text-decoration: underline;	
+       }
       .description-area .link a div {
         word-break: break-all;
         word-wrap: break-word;
@@ -494,6 +502,14 @@
         font-size: 12px;
         padding: 10px 0;
       }
+      .footer a:active,
+      .footer a:focus,
+      .footer a:active *,
+      .footer a:focus * {
+        outline: none;
+         box-shadow: none;
+         text-decoration: underline;
+       }
 
       .footer a span {
         word-wrap: break-word;
@@ -554,25 +570,25 @@
         animation: errorBox 0.2s ease-out;
         position: relative;
       }
-      .error-box::after{
-        content: '';
+      .error-box::after {
+        content: "";
         position: absolute;
         width: 95%;
-        height: 3px;
+        height: 2px;
         border-radius: 3px;
         /* background: linear-gradient(90deg, transparent 0, #fff 50%, transparent 100%); */
-        background-color: #fff6;
-        bottom: 2px;
-        left: 50%;
-        transform: translateX(-50%);
+        background-color: #fff;
+        bottom: 4px;
+        /* left: 50%;
+        transform: translateX(-50%); */
         animation: timeout 5s linear;
       }
 
       @keyframes timeout {
-        0%{
+        0% {
           width: 0;
         }
-        100%{
+        100% {
           width: 95%;
         }
       }
@@ -587,7 +603,7 @@
           opacity: 1;
         }
       }
-      .error-box:nth-child(n+2) {
+      .error-box:nth-child(n + 2) {
         animation: belowErrorBoxes 0.2s ease-out;
       }
       @keyframes belowErrorBoxes {
@@ -623,6 +639,7 @@
         gap: 10px;
         align-items: center;
         color: #fff;
+        padding-bottom: 9px;
       }
 
       .error-message .icon img {
